@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Визитка</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 5% auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    h1 {
+      margin: 10px 0;
+    }
+
+    .contact-info {
+      font-size: 16px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  {{ range .Result}}
+  <div class="container">
+  <header>
+    <img src="{{.Image}}" alt="Фотография" class="profile-img">
+    <h1>{{.Name}}</h1>
+  </header>
+  <section class="contact-info">
+    <h2>Контактная информация</h2>
+    <p><strong>Status:</strong> {{.Status}}</p>
+    <p><strong>Species:</strong> {{.Species}}</p>
+    <p><strong>Gender:</strong> {{.Gender}}</p>
+    <p><strong>Origin:</strong> {{.Origin}}</p>
+    <p><strong>Episode:</strong> {{.Episode}}</p>
+
+  </section>
+  </div>
+  {{end}}
+
+</body>
+</html>
